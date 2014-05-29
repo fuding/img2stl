@@ -1,8 +1,7 @@
 //============================================================================
-// Name        : pngExpander.cpp
+// Name        : deCompress.cpp
 // Author      : Joris van Hien
 // Version     : 0.1
-// Copyright   : Copyright Joris van Hien 2014
 // Description : Used to combine an png with a stl file.
 //============================================================================
 
