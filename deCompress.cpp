@@ -18,14 +18,29 @@ typedef uint32_t ULONG;
 
 const unsigned int blockSize = 0x10000;
 
+template<size_t n>
+uint32_t readUInt32(char const * c)
+{
+  static_assert(n <= 4, "too many bytes for the output type");
+  static_assert(n >= 1, "too few bytes");
+  uint32_t u{0};
+  for (size_t i = 0 ; i < n; ++i)
+  {
+    u <<= 8;
+    u += (c[i] & 0xFF);
+  }
+
+  return u;
+}
+
 int DeCompress::DeCompressPngStl(string pngstl) 
 {
 	fstream fileStream;
 	uint64_t filePointer;
 	uint64_t fileSize = 0;
 	uint32_t position = 0;
-	int stlFileNameLenght = 0;
-	int pngFileNameLenght = 0;
+	uint32_t stlFileNameLenght = 0;
+	uint32_t pngFileNameLenght = 0;
 	int stlEnd = 0;
 
 	//Get size of png
@@ -52,16 +67,12 @@ int DeCompress::DeCompressPngStl(string pngstl)
 	fileStream.seekg(filePointer);
 	fileStream.read(buffer, 6);		// read all 8 bytes of CRC
 
-	for (int u = 2; u < 6; u++) 
-	{
-		position <<= 8;
-		position += (buffer[u] & 0xFF);
-	}
+  position = readUInt32<4>(&buffer[2]);
 
-	cout << "STL position: " << position << endl;
+  cout << "STL position: " << position << endl;
 
-	pngFileNameLenght = buffer[0]; //get lenght of png file name
-	stlFileNameLenght = buffer[1]; // get lenght of stl file name
+	pngFileNameLenght = readUInt32<1>(&buffer[0]); //get lenght of png file name
+	stlFileNameLenght = readUInt32<1>(&buffer[1]); // get lenght of stl file name
 
 	cout << "png file name lenght: " << pngFileNameLenght << endl;
 	cout << "stl file name lenght: " << stlFileNameLenght << endl;
