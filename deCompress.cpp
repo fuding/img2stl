@@ -80,7 +80,7 @@ int DeCompress::DeCompressPngStl(string pngstl)
 	string stlFileName = getStlFileName(&fileStream, stlFileNameLenght, fileSize);
 	string pngFileName = getPngFileName(&fileStream, pngFileNameLenght , stlFileNameLenght, fileSize);
 
-	stlEnd = fileSize - (6 + pngFileNameLenght + pngFileNameLenght);
+  stlEnd = fileSize - (6 + pngFileNameLenght + stlFileNameLenght);
 
 	fileStream.close();
 
@@ -152,11 +152,9 @@ int DeCompress::getPng(string png, string compressedFile, uint32_t endpos)
 
 int DeCompress::getStl(string stl, string compressedFile, uint32_t startpos, uint64_t fileSize) 
 {
-	fileSize = fileSize - 4;
 	fstream fileStreamOut;
 	fstream fileStreamIn;
-	uint64_t filePointer;
-	uint32_t position = 0;
+  uint64_t filePointer;
 
 	int bufferSize = blockSize; 	// arbitrary choice of buffer size
 	int difference = 0;				// difference between current position and file size
