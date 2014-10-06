@@ -1,2 +1,2 @@
 decompressor: main.cpp deCompress.cpp
-	g++ -o decompressor main.cpp deCompress.cpp -I.
+	clang++-libc++ -std=c++14 -o decompressor main.cpp deCompress.cpp -I.
