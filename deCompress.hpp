@@ -1,8 +1,15 @@
 /*
- * deCompress.hpp
+ *     ____  ____  _____   ____________
+ *    / __ \/ __ \/  _/ | / /_  __/ __ \
+ *   / /_/ / /_/ // //  |/ / / / / /_/ /
+ *  / ____/ _, _// // /|  / / / / _, _/
+ * /_/   /_/ |_/___/_/ |_/ /_/ /_/ |_|
  *
- *  Created on: 29-mei-2014
- *      Author: Joris
+ * Copyright Printr B.V. All rights reserved.
+ * This code is closed source and should under
+ * nu circumstances be copied or used in other
+ * applications that for Printr B.V.
+ *
  */
 
 #ifndef DECOMPRESS_H_
