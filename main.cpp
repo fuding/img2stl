@@ -1,12 +1,16 @@
-//============================================================================
-// Name        : main.cpp
-// Author      : Joris van Hien
-// Version     : 0.1
-// Description : Used to combine an png with a stl file.
-//
-// Build	   : g++ main.cpp deCompress.cpp -o decompressor
-//
-//============================================================================
+/*
+ *     ____  ____  _____   ____________
+ *    / __ \/ __ \/  _/ | / /_  __/ __ \
+ *   / /_/ / /_/ // //  |/ / / / / /_/ /
+ *  / ____/ _, _// // /|  / / / / _, _/
+ * /_/   /_/ |_/___/_/ |_/ /_/ /_/ |_|
+ *
+ * Copyright Printr B.V. All rights reserved.
+ * This code is closed source and should under
+ * nu circumstances be copied or used in other
+ * applications that for Printr B.V.
+ *
+ */
 
 #include <iostream>
 
